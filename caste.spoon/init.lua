@@ -19,6 +19,8 @@ local function caste()
         hs.eventtap.keyStroke({ "cmd" }, "c")
         local target = hs.pasteboard.readString()
         hs.pasteboard.setContents(existing)
+        -- clear current selection, required for applications like Excel
+        hs.eventtap.keyStroke({}, "escape")
         hs.eventtap.keyStroke({ "cmd" }, "v")
         if target then
             hs.pasteboard.setContents(target)
